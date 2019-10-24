@@ -8,7 +8,7 @@
     "server": "nodemon --exec babel-node ./dist/index.js"
   },
   "bin": {
-    "greet": "./dist/index.js"
+    "log-keeper": "./dist/index.js"
   },
   "repository": {
     "type": "git",
