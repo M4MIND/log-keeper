@@ -1,12 +1,34 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'layouts/dashboard.twig' %}
+{% block _BODY %}
+	<div class="row-12">
+		<div class="col-a-3">
+			<div class="card">
+				<div class="card__body">
+					<h5 class="card__title">Nginx status</h5>
+					<ul class="list">
+						<li><i class="fa fa-fw fa-terminal"></i><span>{{ status.nginx.loaded }}</span></li>
+						<li><i class="fa fa-fw fa-clock"></i><span>{{ status.nginx.active }}</span></li>
+						<li><i class="fas fa-fw fa-id-badge"></i><span>{{ status.nginx.pid }}</span></li>
+						<li><i class="fa fa-fw fa-microchip"></i><span>{{ status.nginx.cpu }}</span></li>
+						<li><i class="fa fa-fw fa-memory"></i><span>{{ status.nginx.memory }}</span></li>
+						<li><i class="fa fa-fw fa-tasks"></i><span>{{ status.nginx.tasks }}</span></li>
+						<li><i class="fa fa-fw fa-folder"></i><span>Logs: {{ status.nginx.logsDir }}</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card__body">
+					<h5 class="card__title">Php fpm status</h5>
+					<ul class="list">
+						<li><i class="fa fa-fw fa-terminal"></i><span>{{ status.php.loaded }}</span></li>
+						<li><i class="fa fa-fw fa-clock"></i><span>{{ status.php.active }}</span></li>
+						<li><i class="fas fa-fw fa-id-badge"></i><span>{{ status.php.pid }}</span></li>
+						<li><i class="fa fa-fw fa-microchip"></i><span>{{ status.php.cpu }}</span></li>
+						<li><i class="fa fa-fw fa-memory"></i><span>{{ status.php.memory }}</span></li>
+						<li><i class="fa fa-fw fa-tasks"></i><span>{{ status.php.tasks }}</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

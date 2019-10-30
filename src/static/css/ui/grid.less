@@ -1,0 +1,21 @@
+@iterations: 12;
+
+.col-loop (@i) when (@i > 0) {
+  .col-a-@{i} {
+    grid-column-start: span @i;
+  }
+  .col-loop(@i - 1);
+}
+
+.col-loop(@iterations);
+
+.row-loop (@i) when (@i > 0) {
+  .row-@{i} {
+    grid-gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(@i, 1fr);
+  }
+  .row-loop(@i - 1);
+}
+
+.row-loop(@iterations);

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/8c9a8653aa.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+<div class="dashboard">
+	<div class="dashboard__menu">
+		<ul class="dashboard__menu__list">
+			<li class="dashboard__menu__list__item"><a href="/"><i class="fa fa-fw fa-dashboard"></i><span>Dashboard</span></a></li>
+			<li class="dashboard__menu__list__category">Nginx</li>
+			{% for item in app.helpers.nginx.files %}
+				<li class="dashboard__menu__list__item"><a href="/nginx/{{ item }}/"><i class="fa fa-fw fa-file"></i><span>{{ item }}</span></a></li>
+			{% endfor %}
+			<li class="dashboard__menu__list__category">Php fpm</li>
+		</ul>
+	</div>
+	<div class="dashboard__top"></div>
+	<div class="dashboard__content">
+		{% block _BODY %}{% endblock %}
+	</div>
+</div>
+</body>
+</html>

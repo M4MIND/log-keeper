@@ -1,0 +1,33 @@
+.card {
+  margin-bottom: 24px;
+  -webkit-box-shadow: 0 0.75rem 6rem rgba(56, 65, 74, .03);
+  box-shadow: 0 0.75rem 6rem rgba(56, 65, 74, .03);
+  background-color: #ffffff;
+  border-radius: .25rem;
+  background-clip: border-box;
+  border: 0 solid #f7f7f7;
+
+  &__body {
+    padding: 1.25rem;
+  }
+
+  &__title {
+    margin-bottom: .75rem;
+    margin-top: 0;
+    font-size: 1rem;
+    position: relative;
+    text-transform: uppercase;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: auto;
+      border-left: 2px solid #2e7ce4;
+      border-bottom: 0;
+      margin-left: -20px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{% extends '../layouts/dashboard.twig' %}
+
+{% block _BODY %}
+	<div class="card col-a-8">
+		<div class="card__body">
+			<h5 class="card__title">Log</h5>
+			<div class="code">
+				{% for key, item in data %}
+					{% if item %}
+						<div class="code__row">
+							<dt>{{ key }}</dt>
+							<dd>{{ item }}</dd>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

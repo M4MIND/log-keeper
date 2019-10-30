@@ -1,0 +1,41 @@
+.code {
+  margin: 0;
+  list-style: none;
+  overflow-x: auto;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 0.8rem;
+  border: 1px solid #CCCCCC;
+  background-color: #f8f8f8;
+  border-radius: 0.2rem;
+}
+.code__row {
+  display: flex;
+  padding-right: 1rem;
+}
+.code__row:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.code__row:hover dt {
+  color: rgba(27, 31, 35, 0.6);
+}
+.code dd,
+.code dt {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.code dd {
+  word-break: break-all;
+  display: block;
+  margin-left: 0;
+  padding-left: 1rem;
+}
+.code dt {
+  min-width: 60px;
+  padding-right: 0.6rem;
+  padding-left: 0.6rem;
+  color: rgba(27, 31, 35, 0.3);
+  border-right: 1px solid #DDDDDD;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(0, 0, 0, 0.05);
+}

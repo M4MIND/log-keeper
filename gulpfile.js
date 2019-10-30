@@ -3,19 +3,21 @@ let {watch, task} = require('gulp');
 let babel = require('gulp-babel');
 let clean = require('gulp-clean');
 let cached = require('gulp-cached');
+let less = require('gulp-less');
 let fs = require('fs');
 
 let path = {
 	src: {
 		backend: ['./src/**/*.js'],
 		json: ['./src/**/*.json'],
-		twig: ['./src/**/*.twig']
+		twig: ['./src/**/*.twig'],
+		less: ['./src/**/*.less']
 	},
 	dist: {
 		root: ['./dist/'],
 		backendOut: ['./dist/'],
 		jsonOut: ['./dist/'],
-		dist: ['./dist/']
+		dist: ['./dist/'],
 	},
 	test: {
 		backend: ['./test/**.js']
@@ -31,6 +33,12 @@ task('compile-src', () => {
 		.pipe(cached('backend'))
 		.pipe(babel())
 		.pipe(gulp.dest(path.dist.backendOut));
+});
+
+task('compile-css', () => {
+	return gulp.src(path.src.less)
+		.pipe(less())
+		.pipe(gulp.dest(path.dist.root));
 });
 
 task('copy-json', () => {
@@ -54,10 +62,11 @@ task('watch-dev', gulp.parallel(() => {
 	watch(path.src.backend, gulp.series('compile-src'));
 	watch(path.src.json, gulp.series('copy-json'));
 	watch(path.src.twig, gulp.series('copy-twig'));
+	watch(path.src.less, gulp.series('compile-css'))
 }));
 
 task('watch-test', gulp.parallel(() => {
 	watch(path.test.backend)
 }));
 
-task('dev', gulp.series('dist-clean', 'compile-src', 'copy-json', 'copy-twig', gulp.parallel('watch-dev')));
+task('dev', gulp.series('dist-clean', 'compile-src', 'copy-json', 'copy-twig', 'compile-css', gulp.parallel('watch-dev')));
